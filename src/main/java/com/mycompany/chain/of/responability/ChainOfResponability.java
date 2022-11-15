@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
- */
+
 package com.mycompany.chain.of.responability;
 
 import java.util.Random;
@@ -28,80 +25,128 @@ public class ChainOfResponability {
         String respuesta2 = JOptionPane.showInputDialog("Escribe el segundo digito");
         int number1 = Integer.parseInt(respuesta1);
         int number2 = Integer.parseInt(respuesta2);
-        
-        
-        int c= 0;
-        while (c<=0) {
-        int ra = ramdom();
-        int de = ramdom2();
-        
-        switch (ra) {
-            case 1:
-                        if(de==1){
-                            ManejadorConcreto1(number1,number2,resp);
-                            
-                        }else{
-                            System.out.println("el proceso cambi de manejador");
-                        }
+        int h=0;
 
+        int c = 1;
+        while (c <= 1) {
+            int ra = ramdom();
+            if(h!=ra){
+                            boolean de = ramdom2();
+            System.out.println(ra);
+            System.out.println(de);
+            
+            switch (ra) {
+                case 1:
+                    if (de) {
+                        int oper = ManejadorConcreto1(number1, number2, resp);
+                        JOptionPane.showMessageDialog(null, "M1: La Operacion fue realizada con exito " + oper);
+                        c++;
+
+                    } else {
+                        System.out.println("el proceso cambio de manejador");
+                    }
+
+                    break;
+                case 2:
+                    if (de) {
+                        int oper = ManejadorConcreto2(number1, number2, resp);
+                        JOptionPane.showMessageDialog(null, "M2: La Operacion fue realizada con exito " + oper);
+                        c++;
+
+                    } else {
+                       JOptionPane.showMessageDialog(null, "el proceso cambio de manejador");
+                    }
+
+                    break;
+                case 3:
+                    if (de) {
+                        int oper = ManejadorConcreto3(number1, number2, resp);
+                        JOptionPane.showMessageDialog(null, "M3: La Operacion fue realizada con exito " + oper);
+                        c++;
+
+                    } else {
+                        JOptionPane.showMessageDialog(null,"el proceso cambio de manejador");
+                    }
+
+                    break;
+                default:
+            }
                 
-                break;
-            case 2:
-                ManejadorConcreto2(number1,number2);
+            }
+            h=ra;
 
-                break;
-            case 3:
-                ManejadorConcreto3(number1,number2);
-
-                break;
-            default:
-        }                    
         }
     }
 
-    public static void Manejador() {
+    public static int ManejadorConcreto1(int x, int y, String fun) {
+        int operaciom = 0;
 
-    }
+        if (fun == "Suma") {
+            operaciom = x + y;
+        }
+        if (fun == "Resta") {
+            operaciom = x - y;
 
-    public static int ManejadorConcreto1(int x,int y,String fun) {
-        int operaciom=0;
-
-       
-          if(fun=="Suma"){
-              operaciom=x+y;
-        }if(fun=="Resta"){
-            operaciom=x-y;
-            
-        }if(fun=="Multiplicacion"){
-            
-        }if(fun=="Dividir"){
-            
+        }
+        if (fun == "Multiplicacion") {
+            operaciom = x * y;
+        }
+        if (fun == "Dividir") {
+            operaciom = x / y;
         }
 
         return operaciom;
-        }
-
-    public static void ManejadorConcreto2(int x,int y) {
-
     }
 
-    public static void ManejadorConcreto3(int x,int y) {
+    public static int ManejadorConcreto2(int x, int y, String fun) {
+        int operaciom = 0;
 
+        if (fun == "Suma") {
+            operaciom = x + y;
+        }
+        if (fun == "Resta") {
+            operaciom = x - y;
+
+        }
+        if (fun == "Multiplicacion") {
+            operaciom = x * y;
+        }
+        if (fun == "Dividir") {
+            operaciom = x / y;
+        }
+
+        return operaciom;
+    }
+
+    public static int ManejadorConcreto3(int x, int y, String fun) {
+        int operaciom = 0;
+
+        if (fun == "Suma") {
+            operaciom = x + y;
+        }
+        if (fun == "Resta") {
+            operaciom = x - y;
+
+        }
+        if (fun == "Multiplicacion") {
+            operaciom = x * y;
+        }
+        if (fun == "Dividir") {
+            operaciom = x / y;
+        }
+
+        return operaciom;
     }
 
     public static int ramdom() {
         Random r1 = new Random();
-        int valorDado = r1.nextInt(3) + 1;
-        System.out.println(valorDado);
-
+        int valorDado = r1.nextInt(3) + 1; 
         return valorDado;
     }
-    
-    public static int ramdom2() {
-        Random r1 = new Random();
-        int valorDado = r1.nextInt(1) + 1;
-        System.out.println(valorDado);
 
-        return valorDado;
+    public static boolean ramdom2() {
+        Random r1 = new Random();
+        boolean moa = r1.nextBoolean();
+        return moa;
     }
 }
