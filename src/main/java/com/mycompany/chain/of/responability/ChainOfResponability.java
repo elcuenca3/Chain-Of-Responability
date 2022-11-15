@@ -8,10 +8,6 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Erick
- */
 public class ChainOfResponability {
 
     public static void main(String[] args) {
@@ -21,7 +17,7 @@ public class ChainOfResponability {
             "Multiplicacion",
             "Dividir"
         };
-        
+
         ImageIcon icon = new ImageIcon();
         String resp = (String) JOptionPane.showInputDialog(null,
                 "Seleccione una operacion", "Operaciones",
@@ -32,36 +28,80 @@ public class ChainOfResponability {
         String respuesta2 = JOptionPane.showInputDialog("Escribe el segundo digito");
         int number1 = Integer.parseInt(respuesta1);
         int number2 = Integer.parseInt(respuesta2);
-        ramdom();
         
-         
+        
+        int c= 0;
+        while (c<=0) {
+        int ra = ramdom();
+        int de = ramdom2();
+        
+        switch (ra) {
+            case 1:
+                        if(de==1){
+                            ManejadorConcreto1(number1,number2,resp);
+                            
+                        }else{
+                            System.out.println("el proceso cambi de manejador");
+                        }
+
+                
+                break;
+            case 2:
+                ManejadorConcreto2(number1,number2);
+
+                break;
+            case 3:
+                ManejadorConcreto3(number1,number2);
+
+                break;
+            default:
+        }                    
+        }
+    }
+
+    public static void Manejador() {
 
     }
-    public static void Manejador() {
-        
-        
+
+    public static int ManejadorConcreto1(int x,int y,String fun) {
+        int operaciom=0;
+
+       
+          if(fun=="Suma"){
+              operaciom=x+y;
+        }if(fun=="Resta"){
+            operaciom=x-y;
+            
+        }if(fun=="Multiplicacion"){
+            
+        }if(fun=="Dividir"){
+            
+        }
+
+        return operaciom;
+        }
+
+    public static void ManejadorConcreto2(int x,int y) {
+
     }
-     public static void ManejadorConcreto1() {
-        
-        
+
+    public static void ManejadorConcreto3(int x,int y) {
+
     }
-    public static void ManejadorConcreto2() {
-        
-        
-    }
-    public static void ManejadorConcreto3() {
-        
-        
+
+    public static int ramdom() {
+        Random r1 = new Random();
+        int valorDado = r1.nextInt(3) + 1;
+        System.out.println(valorDado);
+
+        return valorDado;
     }
     
-    public static void ramdom() {
-        Random r1 = new Random(10);
-         int valorDado = r1.nextInt(10)+1;
+    public static int ramdom2() {
+        Random r1 = new Random();
+        int valorDado = r1.nextInt(1) + 1;
         System.out.println(valorDado);
-        
-        
-        
+
+        return valorDado;
     }
 }
-
-
